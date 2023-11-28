@@ -10,15 +10,15 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
-@Entity
+@Entity(name = "EntityUser")
 @Data
 @Table(name = "ユーザー情報", schema = "yukyudb")
-public class User implements Serializable {
+public class EntityUser implements Serializable {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "UserID")
-  private Long userId; // 識別子を表すフィールド
+  private String userId; // 識別子を表すフィールド
 
   @Column(name = "Name")
   private String name;
@@ -31,4 +31,5 @@ public class User implements Serializable {
 
   @Column(name = "KanriFlg")
   private String kanriFlg;
+
 }

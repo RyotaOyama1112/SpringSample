@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.dto.UserRequest;
-import com.example.demo.entity.User;
+import com.example.demo.entity.EntityUser;
 import com.example.demo.repository.RegistrationRepository;
 
 /**
@@ -25,10 +25,10 @@ public class RegistrationService {
    * @param user ユーザー情報
    */
   public void create(UserRequest userRequest) {
-	User user = new User();
+	EntityUser user = new EntityUser();
 	user.setPassword(userRequest.getPassword());
     user.setName(userRequest.getName());
-    user.setUserid(userRequest.getUserid());
+    user.setUserId(userRequest.getUserid());
     user.setKanriFlg(userRequest.getKanriFlg());
     user.setBusyo(userRequest.getBusyo());
     registrationRepository.save(user);
